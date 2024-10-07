@@ -1,0 +1,264 @@
+{
+	"info": {
+		"_postman_id": "7af51491-f475-411a-8e90-ea07009fe669",
+		"name": "RuleEngine Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Rules CRUD",
+			"item": [
+				{
+					"name": "GetAllRules",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/rules",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"rules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetRuleByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/rules/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"rules",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddRule",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ruleName\": \"10% discount on all products\",\r\n    \"type\": \"percentage\",\r\n    \"discountValue\": 10,\r\n    \"subCategoryId\": null\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/rules",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"rules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteRule",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/rules/999",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"rules",
+								"999"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pruduct Info",
+			"item": [
+				{
+					"name": "Category",
+					"item": [
+						{
+							"name": "Add Categories Bulk",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"categoryName\": \"Electronics\"\r\n    },\r\n    {\r\n        \"categoryName\": \"Fashion\"\r\n    },\r\n    {\r\n        \"categoryName\": \"Books\"\r\n    }\r\n]\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/categories/bulk",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"categories",
+										"bulk"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add SubCategories Bulk",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"subCategoryName\": \"Mobiles\",\r\n        \"category\": {\r\n            \"id\": 1\r\n        }\r\n    },\r\n    {\r\n        \"subCategoryName\": \"Laptops\",\r\n        \"category\": {\r\n            \"id\": 1\r\n        }\r\n    },\r\n    {\r\n        \"subCategoryName\": \"Tablets\",\r\n        \"category\": {\r\n            \"id\": 1\r\n        }\r\n    },\r\n    {\r\n        \"subCategoryName\": \"Men's Clothing\",\r\n        \"category\": {\r\n            \"id\": 2\r\n        }\r\n    },\r\n    {\r\n        \"subCategoryName\": \"Women's Clothing\",\r\n        \"category\": {\r\n            \"id\": 2\r\n        }\r\n    },\r\n    {\r\n        \"subCategoryName\": \"Fiction\",\r\n        \"category\": {\r\n            \"id\": 3\r\n        }\r\n    },\r\n    {\r\n        \"subCategoryName\": \"Non-Fiction\",\r\n        \"category\": {\r\n            \"id\": 3\r\n        }\r\n    },\r\n    {\r\n        \"subCategoryName\": \"Comics\",\r\n        \"category\": {\r\n            \"id\": 3\r\n        }\r\n    }\r\n]\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/subcategories/bulk",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"subcategories",
+										"bulk"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Products Bulk",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"productName\": \"iPhone 13\",\r\n        \"quantity\": 50,\r\n        \"price\": 999.99,\r\n        \"subCategory\": {\r\n            \"id\": 1\r\n        }\r\n    },\r\n    {\r\n        \"productName\": \"Samsung Galaxy S21\",\r\n        \"quantity\": 40,\r\n        \"price\": 799.99,\r\n        \"subCategory\": {\r\n            \"id\": 1\r\n        }\r\n    },\r\n    {\r\n        \"productName\": \"MacBook Pro\",\r\n        \"quantity\": 30,\r\n        \"price\": 1299.99,\r\n        \"subCategory\": {\r\n            \"id\": 2\r\n        }\r\n    },\r\n    {\r\n        \"productName\": \"Dell XPS 13\",\r\n        \"quantity\": 25,\r\n        \"price\": 1099.99,\r\n        \"subCategory\": {\r\n            \"id\": 2\r\n        }\r\n    },\r\n    {\r\n        \"productName\": \"iPad Pro\",\r\n        \"quantity\": 20,\r\n        \"price\": 799.99,\r\n        \"subCategory\": {\r\n            \"id\": 3\r\n        }\r\n    },\r\n    {\r\n        \"productName\": \"Men's T-shirt\",\r\n        \"quantity\": 100,\r\n        \"price\": 19.99,\r\n        \"subCategory\": {\r\n            \"id\": 4\r\n        }\r\n    },\r\n    {\r\n        \"productName\": \"Men's Jeans\",\r\n        \"quantity\": 70,\r\n        \"price\": 49.99,\r\n        \"subCategory\": {\r\n            \"id\": 4\r\n        }\r\n    },\r\n    {\r\n        \"productName\": \"Women's Dress\",\r\n        \"quantity\": 50,\r\n        \"price\": 59.99,\r\n        \"subCategory\": {\r\n            \"id\": 5\r\n        }\r\n    },\r\n    {\r\n        \"productName\": \"Women's Skirt\",\r\n        \"quantity\": 60,\r\n        \"price\": 39.99,\r\n        \"subCategory\": {\r\n            \"id\": 5\r\n        }\r\n    },\r\n    {\r\n        \"productName\": \"Fiction Novel 1\",\r\n        \"quantity\": 200,\r\n        \"price\": 14.99,\r\n        \"subCategory\": {\r\n            \"id\": 6\r\n        }\r\n    },\r\n    {\r\n        \"productName\": \"Fiction Novel 2\",\r\n        \"quantity\": 180,\r\n        \"price\": 9.99,\r\n        \"subCategory\": {\r\n            \"id\": 6\r\n        }\r\n    },\r\n    {\r\n        \"productName\": \"Self-help Book 1\",\r\n        \"quantity\": 150,\r\n        \"price\": 19.99,\r\n        \"subCategory\": {\r\n            \"id\": 7\r\n        }\r\n    },\r\n    {\r\n        \"productName\": \"Non-fiction Book 1\",\r\n        \"quantity\": 130,\r\n        \"price\": 24.99,\r\n        \"subCategory\": {\r\n            \"id\": 7\r\n        }\r\n    },\r\n    {\r\n        \"productName\": \"Superhero Comic\",\r\n        \"quantity\": 300,\r\n        \"price\": 4.99,\r\n        \"subCategory\": {\r\n            \"id\": 8\r\n        }\r\n    },\r\n    {\r\n        \"productName\": \"Manga Comic\",\r\n        \"quantity\": 250,\r\n        \"price\": 5.99,\r\n        \"subCategory\": {\r\n            \"id\": 8\r\n        }\r\n    }\r\n]\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/products/bulk",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"products",
+										"bulk"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Make Purchase",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"productId\": 1,\r\n        \"quantity\": 1\r\n    },\r\n    {\r\n        \"productId\": 3,\r\n        \"quantity\": 1\r\n    }\r\n]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/purchase",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Rule",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ruleName\": \"10% discount on Mobiles\",\r\n    \"ruleContent\": \"package in.hcl.ruleEngine.rules;\\nrule \\\"10% discount on Electronics\\\"\\nwhen\\n   $product: Product(subCategory.id == 1)\\nthen\\n   double discount = $product.getPrice() * 0.10;\\n   $product.setPrice($product.getPrice() - discount);\\nend\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/rules/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"rules",
+						"create"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
